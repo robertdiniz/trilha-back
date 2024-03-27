@@ -27,4 +27,4 @@ python manage.py runserver
 
 ```
 
-Para acessar o projeto localmente basta acessar <a href="http://localhost:8000/">http://localhost:8000/</a></p>.
+Para acessar o projeto localmente basta acessar <a href="http://localhost:8000/">http://localhost:8000/</a></p>
