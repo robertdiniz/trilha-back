@@ -20,14 +20,26 @@
                     <span class="text-light">Início</span>
                 </a>
                 {% if user.is_authenticated %}
-                    <a class="navbar-brand" href={% url 'criar-produto' %}>                    
-                        <span class="text-light">Criar produto</span>
+                <div>
+                    <a class="navbar-brand" href={% url 'index' %}>                    
+                        <span class="text-light">Vendas</span>
                     </a>
+                    <a class="navbar-brand" href={% url 'produtos' %}>                    
+                        <span class="text-light">Produtos</span>
+                    </a>
+                </div>
                 {% endif %}
                 
-                <a class="navbar-brand" href={% url 'index' %}>                    
-                    <span class="text-light">Login</span>
-                </a>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="navbar-brand text-light" style="background: none; border:none;">Logout</button>
+                    </form>
+                {% else %}
+                    <a class="navbar-brand" href={% url 'login' %}>                    
+                        <span class="text-light">Login</span>
+                    </a>
+                {% endif %}
             </div>
         </nav>
     </header>

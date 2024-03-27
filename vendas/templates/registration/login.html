@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} CRM {% endblock title %}
+
+{% block content %}
+
+<div class="container text-center border p-4 mt-5 d-flex justify-content-center align-items-center flex-column">
+  <h2>Fazer login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>
+
+  
+
+</div>
+
+
+{% endblock content %}
