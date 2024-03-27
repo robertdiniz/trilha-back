@@ -1,2 +1,1 @@
-# secret
-secret
+# Projeto da Trilha Back-end ( Django )
