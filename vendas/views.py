@@ -3,10 +3,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.db.models import Sum
+from rest_framework.viewsets import ModelViewSet
 
 from .forms import *
 from .models import *
-
+from vendas.api.serializers import ProdutosSerializer, VendasSerializer
 
 class IndexView(LoginRequiredMixin, ListView):
     model = Venda
@@ -130,3 +131,13 @@ class DeleteProdutoView(LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
     login_url = 'login'
     redirect_field_name = 'redirect_to'
+
+
+# API 
+class ProdutoModelViewSet(ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutosSerializer
+
+class VendaModelViewSet(ModelViewSet):
+    queryset = Venda.objects.all()
+    serializer_class = VendasSerializer
